@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central Link - Management Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <main class="main-content">
+            <div class="welcome-section">
+                <h2 class="welcome-title">Welcome to Central Link</h2>
+                <p class="welcome-subtitle">Choose your access level to continue</p>
+            </div>
+
+            <div class="access-options">
+                <div class="access-card">
+                    <div class="card-icon agent-icon">
+                        <img src="./img/agent.png" alt="Agent Icon" width="80" height="80">
+                    </div>
+                    <h3>Agents Portal</h3>
+                    <p>Access agent tools and resources</p>
+                    <button class="access-btn agent-btn" onclick="accessAgents()">
+                        <span>Access Agent Portal</span>
+                        <img src="./img/arrow.svg" alt="Arrow" width="20" height="20">
+                    </button>
+                </div>
+
+                <div class="access-card">
+                    <div class="card-icon management-icon">
+                        <img src="./img/manager.png" alt="Management Icon" width="80" height="80">
+                    </div>
+                    <h3>Managment Portal</h3>
+                    <p>Access management dashboard and controls</p>
+                    <button class="access-btn management-btn" onclick="accessManagement()">
+                        <span>Access Management Portal</span>
+                        <img src="./img/arrow.svg" alt="Arrow" width="20" height="20">
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2025 Central Link. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Password Modal -->
+    <div id="passwordModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Management Access Required</h3>
+                <button class="close-btn" onclick="closePasswordModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Please enter the management password to continue:</p>
+                <input type="password" id="passwordInput" placeholder="Enter password" />
+                <div class="error-message" id="errorMessage"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closePasswordModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="validatePassword()">Access</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

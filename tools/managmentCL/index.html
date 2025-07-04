@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central Link - Management Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="./img/favicon.png" type="image/png">
+    <!-- Load Font Awesome asynchronously for better initial load performance -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    
+</head>
+<body>
+    <div class="app">
+        <!-- Navigation Header -->
+        <header class="header">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <div class="logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-link"></i>
+                        </div>
+                    </div>
+                    <div class="brand-text">
+                        <h1 class="brand-title">Central Link</h1>
+                        <p class="brand-subtitle">Management Dashboard</p>
+                    </div>
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="search-container">
+                    <div class="search-wrapper">
+                        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <path d="m21 21-4.35-4.35"/>
+                        </svg>
+                        <input type="text" class="search-input" placeholder="Search tools and forms..." id="search-input">
+                    </div>
+                </div>
+                
+                <div class="nav-actions">
+                    <div class="clock-display">
+                        <div class="clock-time" id="clock-time">12:00:00 PM</div>
+                        <div class="clock-date" id="clock-date">CLT</div>
+                    </div>
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                        <svg class="theme-icon sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"/>
+                            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                        </svg>
+                        <svg class="theme-icon moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <div class="container">
+
+
+                <!-- Category Filters -->
+                <section class="filters-section">
+                    <div class="category-pills">
+                        <button class="category-pill active" data-category="all">
+                            <span class="pill-text">All</span>
+                            <span class="pill-count" id="count-all">0</span>
+                        </button>
+                        <button class="category-pill" data-category="Monitoring Forms">
+                            <span class="pill-text">Monitoring Forms</span>
+                            <span class="pill-count" id="count-monitoring">0</span>
+                        </button>
+                        <button class="category-pill" data-category="Automated Submissions">
+                            <span class="pill-text">Automated Submissions</span>
+                            <span class="pill-count" id="count-automation">0</span>
+                        </button>
+                        <button class="category-pill" data-category="Dashboards">
+                            <span class="pill-text">Dashboards</span>
+                            <span class="pill-count" id="count-analytics">0</span>
+                        </button>
+                        <button class="category-pill" data-category="Tools">
+                            <span class="pill-text">Tools</span>
+                            <span class="pill-count" id="count-utilities">0</span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Tools Grid -->
+                <section class="tools-section">
+                    <div class="tools-grid" id="tools-grid">
+                        
+                        <!-- Monitoring Forms -->
+                        <div class="tool-card" data-category="Monitoring Forms">
+                            <a href="https://forms.office.com/pages/responsepage.aspx?id=wF1Tz_xz6kGhdBfzfO1_56hQfinLZ45GvBOPT-gWjm5UMlo5OVY1WUhBSExMSVpXNFlNNlo0SUFRNy4u&route=shorturl" target="_blank">
+                                <div class="tool-header">
+                                    <div class="tool-icon monitoring">
+                                        <img src="./img/hold.png" alt="Hold">
+                                    </div>
+                                    <div class="tool-status">
+                                        <span class="status-badge active">Active</span>
+                                    </div>
+                                </div>
+                                <div class="tool-body">
+                                    <h3 class="tool-title">Hold</h3>
+                                    <div class="tool-meta">
+                                        <span class="meta-tag">Monitoring</span>
+                                        <span class="meta-tag">Forms</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="tool-card" data-category="Monitoring Forms">
+                            <a href="https://forms.office.com/pages/responsepage.aspx?id=wF1Tz_xz6kGhdBfzfO1_56hQfinLZ45GvBOPT-gWjm5UNU5NNkJRTTFEMDdJU1hXNE9CVjRZMENJUC4u&route=shorturl" target="_blank">
+                                <div class="tool-header">
+                                    <div class="tool-icon monitoring">
+                                        <img src="./img/creditValidation.png" alt="Credit Validation">
+                                    </div>
+                                    <div class="tool-status">
+                                        <span class="status-badge active">Active</span>
+                                    </div>
+                                </div>
+                                <div class="tool-body">
+                                    <h3 class="tool-title">Credit Validation</h3>
+                                    <div class="tool-meta">
+                                        <span class="meta-tag">Monitoring</span>
+                                        <span class="meta-tag">Validation</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="tool-card" data-category="Monitoring Forms">
+                            <a href="https://forms.office.com/pages/responsepage.aspx?id=wF1Tz_xz6kGhdBfzfO1_55FXZYpfEWpErxtKVHVBpkdUOTNLTVZKV1NNMFQyODNDNVJST0RLWEM1VC4u&route=shorturl" target="_blank">
+                                <div class="tool-header">
+                                    <div class="tool-icon monitoring">
+                                        <img src="./img/TOC.png" alt="TOC">
+                                    </div>
+                                    <div class="tool-status">
+                                        <span class="status-badge active">Active</span>
+                                    </div>
+                                </div>
+                                <div class="tool-body">
+                                    <h3 class="tool-title">TOC</h3>
+                                    <div class="tool-meta">
+                                        <span class="meta-tag">Monitoring</span>
+                                        <span class="meta-tag">Compliance</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="tool-card" data-category="Monitoring Forms">
+                            <a href="https://forms.office.com/r/c6Q46sSwuN" target="_blank">
+                                <div class="tool-header">
+                                    <div class="tool-icon monitoring">
+                                        <img src="./img/escalations.png" alt="Escalations">
+                                    </div>
+                                    <div class="tool-status">
+                                        <span class="status-badge priority">Priority</span>
+                                    </div>
+                                </div>
+                                <div class="tool-body">
+                                    <h3 class="tool-title">Escalations</h3>
+                                    <div class="tool-meta">
+                                        <span class="meta-tag">Monitoring</span>
+                                        <span class="meta-tag">Escalations</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="tool-card" data-category="Monitoring Forms">
+                            <a href="https://forms.office.com/pages/responsepage.aspx?id=wF1Tz_xz6kGhdBfzfO1_54rPrLpHqRhDmEO6RTQp2KFUNEJFQkgyOUFYTkZWSElGUDY2VFhSN1U1Ni4u&route=shorturl" target="_blank">
+                                <div class="tool-header">
+                                    <div class="tool-icon monitoring">
+                                        <img src="./img/AVAbookshelf.png" alt="AVA">
+                                    </div>
+                                    <div class="tool-status">
+                                        <span class="status-badge active">Active</span>
+                                    </div>
+                                </div>
+                                <div class="tool-body">
+                                    <h3 class="tool-title">AVA Bookshelf</h3>
+                                    <div class="tool-meta">
+                                        <span class="meta-tag">Monitoring</span>
+                                        <span class="meta-tag">Resources</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="tool-card" data-category="Monitoring Forms">
+                            <a href="https://forms.office.com/pages/responsepage.aspx?id=wF1Tz_xz6kGhdBfzfO1_5xzE8kOeUh5ArdYNdZVHmkBUQTg3MEQ3TDI2N1dLTFk1RzJCT1NTTzlCOC4u&route=shorturl" target="_blank">
+                                <div class="tool-header">
+                                    <div class="tool-icon monitoring">
+                                        <img src="./img/callMonitoring.png" alt="Call Monitoring">
+                                    </div>
+                                    <div class="tool-status">
+                                        <span class="status-badge active">Active</span>
+                                    </div>
+                                </div>
+                                <div class="tool-body">
+                                    <h3 class="tool-title">Call Monitoring</h3>
+                                    <div class="tool-meta">
+                                        <span class="meta-tag">Monitoring</span>
+                                        <span class="meta-tag">Quality</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="tool-card" data-category="Monitoring Forms">
+                            <a href="https://forms.office.com/r/dUQkJA5U7W" target="_blank">
+                                <div class="tool-header">
+                                    <div class="tool-icon monitoring">
+                                        <img src="./img/lightspeedUtilization.png" alt="Lightspeed Utilization">
+                                    </div>
+                                    <div class="tool-status">
+                                        <span class="status-badge active">Active</span>
+                                    </div>
+                                </div>
+                                <div class="tool-body">
+                                    <h3 class="tool-title">Lightspeed Utilization</h3>
+                                    <div class="tool-meta">
+                                        <span class="meta-tag">Monitoring</span>
+                                        <span class="meta-tag">Utilization</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="tool-card" data-category="Monitoring Forms">
+                            <a href="https://forms.office.com/r/tTeTSaTnTj" target="_blank">
+                                <div class="tool-header">
+                                    <div class="tool-icon monitoring">
+                                        <img src="./img/closingScript.png" alt="Closing Script">
+                                    </div>
+                                    <div class="tool-status">
+                                        <span class="status-badge active">Active</span>
+                                    </div>
+                                </div>
+                                <div class="tool-body">
+                                    <h3 class="tool-title">Closing Script</h3>
+                                    <div class="tool-meta">
+                                        <span class="meta-tag">Monitoring</span>
+                                        <span class="meta-tag">Scripts</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Automated Submissions -->
+                        <div class="tool-card" data-category="Automated Submissions">
+                            <a href="https://forms.office.com/r/Yj8BQRC96M" target="_blank">
+                                <div class="tool-header">
+                                    <div class="tool-icon automation">
+                                        <img src="./img/OTform.png" alt="OT Form">
+                                    </div>
+                                    <div class="tool-status">
+                                        <span class="status-badge automated">Automated</span>
+                                    </div>
+                                </div>
+                                <div class="tool-body">
+                                    <h3 class="tool-title">OT Form</h3>
+                                    <div class="tool-meta">
+                                        <span class="meta-tag">Automation</span>
+                                        <span class="meta-tag">Overtime</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="tool-card" data-category="Automated Submissions">
+                            <a href="https://forms.office.com/pages/responsepage.aspx?id=wF1Tz_xz6kGhdBfzfO1_54YY-BJsDbpBmPWwOrjFHDxUM01QVEJUUjVPUzA1RTQ0UUhCV0hWRUZYVi4u&route=shorturl" target="_blank">
+                                <div class="tool-header">
+                                    <div class="tool-icon automation">
+                                        <img src="./img/coaching.png" alt="Coaching">
+                                    </div>
+                                    <div class="tool-status">
+                                        <span class="status-badge automated">Automated</span>
+                                    </div>
+                                </div>
+                                <div class="tool-body">
+                                    <h3 class="tool-title">Coaching</h3>
+                                    <div class="tool-meta">
+                                        <span class="meta-tag">Automation</span>
+                                        <span class="meta-tag">Coaching</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="tool-card" data-category="Automated Submissions">
+                            <a href="https://forms.office.com/pages/responsepage.aspx?id=wF1Tz_xz6kGhdBfzfO1_54YY-BJsDbpBmPWwOrjFHDxUQjc3REYxVFNDSldPM05QRzY0QlZaTE0yOS4u&route=shorturl" target="_blank">
+                                <div class="tool-header">
+                                    <div class="tool-icon automation">
+                                        <img src="./img/coachingAdjustmentForm.png" alt="Coaching Adjustment Form">
+                                    </div>
+                                    <div class="tool-status">
+                                        <span class="status-badge automated">Automated</span>
+                                    </div>
+                                </div>
+                                <div class="tool-body">
+                                    <h3 class="tool-title">Coaching Adjustment Form</h3>
+                                    <div class="tool-meta">
+                                        <span class="meta-tag">Automation</span>
+                                        <span class="meta-tag">Adjustments</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="tool-card" data-category="Automated Submissions">
+                            <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=wF1Tz_xz6kGhdBfzfO1_5-ZJ-hMftkJAoS6UgQSJ5opUMVRLRktMVFFFREhMTFFYUlI5M1hJSkJCNi4u" target="_blank">
+                                <div class="tool-header">
+                                    <div class="tool-icon automation">
+                                        <img src="./img/QAdispute.png" alt="QA Dispute">
+                                    </div>
+                                    <div class="tool-status">
+                                        <span class="status-badge automated">Automated</span>
+                                    </div>
+                                </div>
+                                <div class="tool-body">
+                                    <h3 class="tool-title">QA Dispute</h3>
+                                    <div class="tool-meta">
+                                        <span class="meta-tag">Automation</span>
+                                        <span class="meta-tag">Quality</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="tool-card" data-category="Automated Submissions">
+                            <a href="https://forms.office.com/r/JezB58CvWm" target="_blank">
+                                <div class="tool-header">
+                                    <div class="tool-icon automation">
+                                        <img src="./img/CPEflags.png" alt="CPE Flags">
+                                    </div>
+                                    <div class="tool-status">
+                                        <span class="status-badge automated">Automated</span>
+                                    </div>
+                                </div>
+                                <div class="tool-body">
+                                    <h3 class="tool-title">CPE Flags</h3>
+                                    <div class="tool-meta">
+                                        <span class="meta-tag">Automation</span>
+                                        <span class="meta-tag">Flags</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Dashboards -->
+                        <div class="tool-card" data-category="Dashboards">
+                            <a href="https://sso.online.tableau.com/public/idp/SSO" target="_blank">
+                                <div class="tool-header">
+                                    <div class="tool-icon dashboard">
+                                        <img src="./img/tableau.png" alt="Tableau">
+                                    </div>
+                                    <div class="tool-status">
+                                        <span class="status-badge dashboard">Dashboard</span>
+                                    </div>
+                                </div>
+                                <div class="tool-body">
+                                    <h3 class="tool-title">Tableau</h3>
+                                    <div class="tool-meta">
+                                        <span class="meta-tag">Analytics</span>
+                                        <span class="meta-tag">Dashboard</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="tool-card" data-category="Dashboards">
+                            <a href="https://drive.google.com/drive/folders/1L5gLNk3lqrtIp8WjJJ0GB_Km77r9I561" target="_blank">
+                                <div class="tool-header">
+                                    <div class="tool-icon dashboard">
+                                        <img src="./img/RTM.png" alt="RTM">
+                                    </div>
+                                    <div class="tool-status">
+                                        <span class="status-badge dashboard">Dashboard</span>
+                                    </div>
+                                </div>
+                                <div class="tool-body">
+                                    <h3 class="tool-title">RTM</h3>
+                                    <div class="tool-meta">
+                                        <span class="meta-tag">Analytics</span>
+                                        <span class="meta-tag">Real-time</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="tool-card" data-category="Dashboards">
+                            <a href="https://drive.google.com/drive/u/0/folders/1-wzlEo8EYx_EPS525Ep_hqaOFKRWRCB3" target="_blank">
+                                <div class="tool-header">
+                                    <div class="tool-icon dashboard">
+                                        <img src="./img/reporting.png" alt="Reporting">
+                                    </div>
+                                    <div class="tool-status">
+                                        <span class="status-badge dashboard">Dashboard</span>
+                                    </div>
+                                </div>
+                                <div class="tool-body">
+                                    <h3 class="tool-title">Reporting</h3>
+                                    <div class="tool-meta">
+                                        <span class="meta-tag">Analytics</span>
+                                        <span class="meta-tag">Reports</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Tools -->
+                        <div class="tool-card" data-category="Tools">
+                            <a href="https://verint15.alticeusa.com/wfo/control/signin" target="_blank">
+                                <div class="tool-header">
+                                    <div class="tool-icon tool">
+                                        <img src="./img/verint.png" alt="Verint">
+                                    </div>
+                                    <div class="tool-status">
+                                        <span class="status-badge tool">Tool</span>
+                                    </div>
+                                </div>
+                                <div class="tool-body">
+                                    <h3 class="tool-title">Verint</h3>
+                                    <div class="tool-meta">
+                                        <span class="meta-tag">Utility</span>
+                                        <span class="meta-tag">Analytics</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="tool-card" data-category="Tools">
+                            <a href="https://nxt.alticeusa.net/nxt-ui/#/login" target="_blank">
+                                <div class="tool-header">
+                                    <div class="tool-icon tool">
+                                        <img src="./img/servassure.png" alt="Servassure">
+                                    </div>
+                                    <div class="tool-status">
+                                        <span class="status-badge tool">Tool</span>
+                                    </div>
+                                </div>
+                                <div class="tool-body">
+                                    <h3 class="tool-title">Servassure</h3>
+                                    <div class="tool-meta">
+                                        <span class="meta-tag">Utility</span>
+                                        <span class="meta-tag">Network</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="tool-card" data-category="Tools">
+                            <a href="https://web.whatsapp.com/" target="_blank">
+                                <div class="tool-header">
+                                    <div class="tool-icon tool">
+                                        <img src="./img/whatsappWeb.png" alt="WhatsApp Web">
+                                    </div>
+                                    <div class="tool-status">
+                                        <span class="status-badge tool">Tool</span>
+                                    </div>
+                                </div>
+                                <div class="tool-body">
+                                    <h3 class="tool-title">WhatsApp Web</h3>
+                                    <div class="tool-meta">
+                                        <span class="meta-tag">Utility</span>
+                                        <span class="meta-tag">Communication</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="tool-card" data-category="Tools">
+                            <a href="https://optimum.ausaqaconnect.com/TransmonAltice/Login" target="_blank">
+                                <div class="tool-header">
+                                    <div class="tool-icon tool">
+                                        <img src="./img/QAconnect.png" alt="QA Connect">
+                                    </div>
+                                    <div class="tool-status">
+                                        <span class="status-badge tool">Tool</span>
+                                    </div>
+                                </div>
+                                <div class="tool-body">
+                                    <h3 class="tool-title">QA Connect</h3>
+                                    <div class="tool-meta">
+                                        <span class="meta-tag">Utility</span>
+                                        <span class="meta-tag">Quality</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="tool-card" data-category="Tools">
+                            <a href="https://ash-rsso1.onbmc.com/rsso/start" target="_blank">
+                                <div class="tool-header">
+                                    <div class="tool-icon tool">
+                                        <img src="./img/helix.png" alt="Helix">
+                                    </div>
+                                    <div class="tool-status">
+                                        <span class="status-badge tool">Tool</span>
+                                    </div>
+                                </div>
+                                <div class="tool-body">
+                                    <h3 class="tool-title">Helix</h3>
+                                    <div class="tool-meta">
+                                        <span class="meta-tag">Utility</span>
+                                        <span class="meta-tag">IT Support</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Shared Services -->
+                        <div class="tool-card" data-category="shared services">
+                            <a href="https://cvcmail.sharepoint.com/:u:/r/sites/PA/SitePages/Home.aspx?e=4%3af2f549cf72084c11b3300b221377887e&web=1&sharingv2=true&fromShare=true&at=9" target="_blank">
+                                <div class="tool-header">
+                                    <div class="tool-icon shared">
+                                        <img src="./img/sharepoint.png" alt="SharePoint">
+                                    </div>
+                                    <div class="tool-status">
+                                        <span class="status-badge shared">Secured</span>
+                                    </div>
+                                </div>
+                                <div class="tool-body">
+                                    <h3 class="tool-title">SS SharePoint</h3>
+                                    <div class="tool-meta">
+                                        <span class="meta-tag">Shared</span>
+                                        <span class="meta-tag">Documents</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="tool-card" data-category="shared services">
+                            <a href="https://forms.office.com/r/i2EQjAUbG5" target="_blank">
+                                <div class="tool-header">
+                                    <div class="tool-icon shared">
+                                        <img src="./img/ION.png" alt="SS ION's">
+                                    </div>
+                                    <div class="tool-status">
+                                        <span class="status-badge shared">Secured</span>
+                                    </div>
+                                </div>
+                                <div class="tool-body">
+                                    <h3 class="tool-title">SS ION's</h3>
+                                    <div class="tool-meta">
+                                        <span class="meta-tag">Shared</span>
+                                        <span class="meta-tag">ION</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="tool-card" data-category="shared services">
+                            <a href="https://forms.office.com/pages/responsepage.aspx?id=wF1Tz_xz6kGhdBfzfO1_50Pz0X_itztMnpNZc2i1lCdUNFhQODkwNDI1NkY2MVNWT09MNDVOVjAyMC4u" target="_blank">
+                                <div class="tool-header">
+                                    <div class="tool-icon shared">
+                                        <img src="./img/SPV.png" alt="SS SPV Escalations">
+                                    </div>
+                                    <div class="tool-status">
+                                        <span class="status-badge shared">Secured</span>
+                                    </div>
+                                </div>
+                                <div class="tool-body">
+                                    <h3 class="tool-title">SS SPV Escalations</h3>
+                                    <div class="tool-meta">
+                                        <span class="meta-tag">Shared</span>
+                                        <span class="meta-tag">Escalations</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <!-- Empty State -->
+                    <div class="empty-state hidden" id="empty-state">
+                        <div class="empty-illustration">
+                            <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                <circle cx="11" cy="11" r="8"/>
+                                <path d="m21 21-4.35-4.35"/>
+                            </svg>
+                        </div>
+                        <h3 class="empty-title">No tools found</h3>
+                        <p class="empty-description">Try adjusting your search or filter criteria to find the tools you're looking for.</p>
+                    </div>
+                </section>
+
+                <!-- Password Modal -->
+                <div class="modal-overlay hidden" id="password-modal">
+                    <div class="modal-container">
+                        <div class="modal-header">
+                            <h2 class="modal-title">Shared Services Access</h2>
+                            <button class="modal-close" id="modal-close" aria-label="Close modal">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="18" y1="6" x2="6" y2="18"/>
+                                    <line x1="6" y1="6" x2="18" y2="18"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="modal-description">Please enter the access password to continue to the shared services resources.</p>
+                            <div class="password-input-container">
+                                <input type="password" id="password-input" class="password-input" placeholder="Enter password..." autocomplete="current-password">
+                                <button class="password-reveal" id="password-reveal" aria-label="Toggle password visibility">
+                                    <svg class="eye-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                        <circle cx="12" cy="12" r="3"/>
+                                    </svg>
+                                    <svg class="eye-off-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+                                        <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+                                        <line x1="1" y1="1" x2="23" y2="23"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <p class="error-message" id="error-message"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="button button-secondary" id="modal-cancel">Cancel</button>
+                            <button class="button button-primary" id="modal-submit">Access</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 EvoStatic. All rights reserved.</p>
+            <p class="footer-subtitle">Static by Nature. Evolved by Design.</p>
+        </div>
+    </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

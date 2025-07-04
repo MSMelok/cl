@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <!-- Google tag (gtag.js) Start - Defer for performance -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-427EN7ZQVS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-427EN7ZQVS');
+    </script>
+    <!-- Google tag (gtag.js) End -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central Link - Agents Dashboard</title>
+
+    <!-- Critical CSS inlined for faster initial render -->
+    <style>
+        /* Critical rendering path styles */
+        :root {
+            --primary: #8b5cf6;
+            --primary-light: #a78bfa;
+            --primary-dark: #7c3aed;
+            --background: #0f1419;
+            --surface: #1a1f2e;
+            --surface-light: #242938;
+            --text: #ffffff;
+            --text-secondary: #94a3b8;
+            --border: rgba(148, 163, 184, 0.2);
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --radius: 12px;
+            --radius-lg: 16px;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            background-color: var(--background);
+            min-height: 100vh;
+        }
+        .app {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        body.ready .app {
+            opacity: 1;
+        }
+        .hidden {
+            display: none !important;
+        }
+        /* Spinner for initial loading */
+        .loading-spinner {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(255,255,255,0.1);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 1s ease-in-out infinite;
+            z-index: 1000;
+        }
+        @keyframes spin {
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+    </style>
+    
+    <!-- Preload most critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="main.js" as="script">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="./img/favicon.png" sizes="32x32">
+
+    <!-- Load Font Awesome asynchronously for better initial load performance -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    
+    <!-- Preload Inter font -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+</head>
+<body>
+    <!-- Content loads immediately without spinner -->
+    <div class="app">
+        <header class="header">
+            <div class="header-content">
+                <div class="title-section">
+                    <div class="logo-section">
+                        <div class="logo-icon">
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <div class="logo-text">
+                            <h1 class="title">Central Link</h1>
+                            <span class="subtitle">Agents Dashboard</span>
+                        </div>
+                    </div>
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <i class="fas fa-search search-icon"></i>
+                            <input type="text" id="searchInput" class="search-input" placeholder="Search tools and forms..." autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="header-utils">
+                        <div class="clock" id="clock"></div>
+                        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="dashboard-controls">
+                <div class="categories">
+                    <button class="category-btn active" data-category="all">
+                        <span class="category-label">All</span>
+                        <span class="category-count" id="all-count">30</span>
+                    </button>
+                    <button class="category-btn" data-category="DU">
+                        <span class="category-label">Daily Used</span>
+                        <span class="category-count" id="DU-count">10</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid" id="toolsGrid">
+                <!-- Cards with data-search attributes for better search indexing -->
+                <div class="card" data-category="DU" data-search="cisco communication voip phone">
+                    <a href="https://altparplfinp4.cvcauth.com/desktop/container/landing.jsp?locale=en_US" target="_blank">
+                        <div class="card-header">
+                            <div class="card-icon cisco">
+                                <img src="./img/cisco.png" alt="Cisco">
+                            </div>
+                            <div class="status-badge active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Cisco</div>
+                            <div class="card-tags">
+                                <span class="tag">Communication</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card" data-category="DU">
+                    <a href="https://outlook.office365.com/mail/" target="_blank">
+                        <div class="card-header">
+                            <div class="card-icon outlook">
+                                <img src="./img/Outlook.png" alt="Outlook">
+                            </div>
+                            <div class="status-badge active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Outlook | @AlticeUSA</div>
+                            <div class="card-tags">
+                                <span class="tag">Email</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card" data-category="DU">
+                    <a href="https://lightspeed.alticeusa.net/" target="_blank">
+                        <div class="card-header">
+                            <div class="card-icon lightspeed">
+                                <img src="./img/flash.png" alt="Lightspeed">
+                            </div>
+                            <div class="status-badge active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Lightspeed</div>
+                            <div class="card-tags">
+                                <span class="tag">Network Tools</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card" data-category="DU">
+                    <a href="https://care-ava.lbl.gcp.alticeusa.com/" target="_blank">
+                        <div class="card-header">
+                            <div class="card-icon ava">
+                                <img src="./img/AVA_LOGO.png" alt="AVA Care">
+                            </div>
+                            <div class="status-badge active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">AVA Care</div>
+                            <div class="card-tags">
+                                <span class="tag">Support Tools</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card" data-category="DU">
+                    <a href="https://forms.office.com/pages/responsepage.aspx?id=wF1Tz_xz6kGhdBfzfO1_53DO5iDuLppIraEJz6tZcBBUMDZOSDMzRldIRkdBTDhWWkFBWTY2NEQ2SC4u&route=shorturl" target="_blank">
+                        <div class="card-header">
+                            <div class="card-icon bookshelf">
+                                <img src="./img/form.png" alt="Mobile Pitch & Transfer">
+                            </div>
+                            <div class="status-badge active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Mobile Pitch & Transfer</div>
+                            <div class="card-tags">
+                                <span class="tag">Forms</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card" data-category="DU">
+                    <a href="https://forms.office.com/pages/responsepage.aspx?id=wF1Tz_xz6kGhdBfzfO1_5znjfN9_qpNNgXiWBMskmVRURUlaWU41SVNPWUVTTlEzN0YwSFoyOVhMQy4u&origin=lprLink&route=shorturl" target="_blank">
+                        <div class="card-header">
+                            <div class="card-icon monitoring">
+                                <img src="./img/form.png" alt="Break Move Form">
+                            </div>
+                            <div class="status-badge active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Break Move Form</div>
+                            <div class="card-tags">
+                                <span class="tag">Forms</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card" data-category="DU">
+                    <a href="https://www.optimum.com/stores/" target="_blank">
+                        <div class="card-header">
+                            <div class="card-icon utilization">
+                                <img src="./img/Optimum.png" alt="Store Locations">
+                            </div>
+                            <div class="status-badge active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Store Locations</div>
+                            <div class="card-tags">
+                                <span class="tag">Resources</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card" data-category="DU">
+                    <a href="https://kdb.cablevision.com/SharedFiles/Files/includes/fiber-e2e/v.4/story.html" target="_blank">
+                        <div class="card-header">
+                            <div class="card-icon script">
+                                <img src="./img/E2E.png" alt="E2E Deals">
+                            </div>
+                            <div class="status-badge active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">E2E Deals</div>
+                            <div class="card-tags">
+                                <span class="tag">Tools</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card" data-category="DU">
+                    <a href="https://optimum.ausaqaconnect.com/TransmonAltice/Login" target="_blank">
+                        <div class="card-header">
+                            <div class="card-icon overtime">
+                                <img src="./img/QA-Feedback.png" alt="QA Evaluation Feedback">
+                            </div>
+                            <div class="status-badge active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">QA Evaluation Feedback</div>
+                            <div class="card-tags">
+                                <span class="tag">Tools</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card" data-category="DU">
+                    <a href="https://www.optimum.com/mobile/plan/savings-calculator" target="_blank">
+                        <div class="card-header">
+                            <div class="card-icon coaching">
+                                <img src="./img/Optimum.png" alt="Mobile Calculator">
+                            </div>
+                            <div class="status-badge active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Mobile Calculator</div>
+                            <div class="card-tags">
+                                <span class="tag">Tools</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card" data-category="tools">
+                    <a href="https://mail.google.com/" target="_blank">
+                        <div class="card-header">
+                            <div class="card-icon adjustment">
+                                <img src="./img/gmail.png" alt="Gmail">
+                            </div>
+                            <div class="status-badge active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Gmail | @Intelcia</div>
+                            <div class="card-tags">
+                                <span class="tag">Email</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card" data-category="tools">
+                    <a href="https://packetping.sdl.alticeusa.net/" target="_blank">
+                        <div class="card-header">
+                            <div class="card-icon dispute">
+                                <img src="./img/PingIp.png" alt="PingPool">
+                            </div>
+                            <div class="status-badge active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">PingPool | WEST</div>
+                            <div class="card-tags">
+                                <span class="tag">Network Tools</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card" data-category="tools">
+                    <a href="http://vip-bluegatewayapi.cablevision.com:8080/CPEGatewayUI/" target="_blank">
+                        <div class="card-header">
+                            <div class="card-icon powerbi">
+                                <img src="./img/bluePage.png" alt="Blue Page">
+                            </div>
+                            <div class="status-badge active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Blue Page</div>
+                            <div class="card-tags">
+                                <span class="tag">Network Tools</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card" data-category="tools">
+                    <a href="https://boost.cablevision.com/boost2/searchAction.do" target="_blank">
+                        <div class="card-header">
+                            <div class="card-icon servicenow">
+                                <img src="./img/Boost.png" alt="Boost">
+                            </div>
+                            <div class="status-badge active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Boost</div>
+                            <div class="card-tags">
+                                <span class="tag">Network Tools</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card" data-category="tools">
+                    <a href="https://kdb.cablevision.com/KDB/jsp/CDA/HomePage.jsp" target="_blank">
+                        <div class="card-header">
+                            <div class="card-icon sharepoint">
+                                <img src="./img/kdb.png" alt="KDB">
+                            </div>
+                            <div class="status-badge active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">KDB | Knowledge DB</div>
+                            <div class="card-tags">
+                                <span class="tag">Network Tools</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card" data-category="tools">
+                    <a href="http://ov/TRiOLogin" target="_blank">
+                        <div class="card-header">
+                            <div class="card-icon tableau">
+                                <img src="./img/Trio-OV.png" alt="TRIO">
+                            </div>
+                            <div class="status-badge active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">TRIO | Voice</div>
+                            <div class="card-tags">
+                                <span class="tag">Network Tools</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card" data-category="tools">
+                    <a href="https://www.fedex.com/en-us/home.html" target="_blank">
+                        <div class="card-header">
+                            <div class="card-icon slack">
+                                <img src="./img/fedexLogo.png" alt="FedEx">
+                            </div>
+                            <div class="status-badge active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">FedEx | Track a Shipment</div>
+                            <div class="card-tags">
+                                <span class="tag">Network Tools</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card" data-category="dashboards">
+                    <a href="https://tableau.cablevision.com/" target="_blank">
+                        <div class="card-header">
+                            <div class="card-icon grafana">
+                                <img src="./img/Tableau.png" alt="Tableau">
+                            </div>
+                            <div class="status-badge active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Tableau</div>
+                            <div class="card-tags">
+                                <span class="tag">Support</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card" data-category="tools">
+                    <a href="https://whaui.cablevision.com/WHAUI/" target="_blank">
+                        <div class="card-header">
+                            <div class="card-icon cisco">
+                                <img src="./img/activation.png" alt="WHA Activation">
+                            </div>
+                            <div class="status-badge active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">WHA | Activation</div>
+                            <div class="card-tags">
+                                <span class="tag">Tools</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card" data-category="tools">
+                    <a href="https://altbthpwwfcem01.cvcauth.com/WFO/" target="_blank">
+                        <div class="card-header">
+                            <div class="card-icon outlook">
+                                <img src="./img/WFO.webp" alt="WFO">
+                            </div>
+                            <div class="status-badge active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">WFO | WorkForce</div>
+                            <div class="card-tags">
+                                <span class="tag">Schedule</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card" data-category="tools">
+                    <a href="https://msmelok.github.io/box-mate/" target="_blank">
+                        <div class="card-header">
+                            <div class="card-icon lightspeed">
+                                <img src="./img/byMo.png" alt="BoxMate">
+                            </div>
+                            <div class="status-badge active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">BoxMate | Box Maintenance</div>
+                            <div class="card-tags">
+                                <span class="tag">Network Tools</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card" data-category="tools">
+                    <a href="https://msmelok.github.io/convert/" target="_blank">
+                        <div class="card-header">
+                            <div class="card-icon ava">
+                                <img src="./img/byMo.png" alt="Time Converter">
+                            </div>
+                            <div class="status-badge active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Time Converter</div>
+                            <div class="card-tags">
+                                <span class="tag">Network Tools</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card" data-category="tools">
+                    <a href="https://msmelok.github.io/doc/" target="_blank">
+                        <div class="card-header">
+                            <div class="card-icon bookshelf">
+                                <img src="./img/byMo.png" alt="Call Documentation">
+                            </div>
+                            <div class="status-badge active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Doc | Call Documentation</div>
+                            <div class="card-tags">
+                                <span class="tag">Network Tools</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card" data-category="tools">
+                    <a href="https://msmelok.github.io/pair-remote/" target="_blank">
+                        <div class="card-header">
+                            <div class="card-icon monitoring">
+                                <img src="./img/byMo.png" alt="Remote Pairing">
+                            </div>
+                            <div class="status-badge active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Remote Pairing Assistant</div>
+                            <div class="card-tags">
+                                <span class="tag">Network Tools</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card" data-category="tools">
+                    <a href="https://macaddress.io/" target="_blank">
+                        <div class="card-header">
+                            <div class="card-icon utilization">
+                                <img src="./img/macAdd.png" alt="MAC Address Lookup">
+                            </div>
+                            <div class="status-badge active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">MAC Address Lookup</div>
+                            <div class="card-tags">
+                                <span class="tag">Network Tools</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card" data-category="tools">
+                    <a href="https://customerexperience.optimum.com/homepage/ui" target="_blank">
+                        <div class="card-header">
+                            <div class="card-icon script">
+                                <img src="./img/OSATfavicon.jpeg" alt="Qualtrics OSAT">
+                            </div>
+                            <div class="status-badge active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Qualtrics OSAT</div>
+                            <div class="card-tags">
+                                <span class="tag">Support</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card" data-category="tools">
+                    <a href="https://kslink.me/f/41608935/1285/" target="_blank">
+                        <div class="card-header">
+                            <div class="card-icon overtime">
+                                <img src="./img/Optimum.png" alt="Gift Card Tracker">
+                            </div>
+                            <div class="status-badge active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Gift Card Tracker</div>
+                            <div class="card-tags">
+                                <span class="tag">Tools</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card" data-category="tools">
+                    <a href="https://www.optimum.net/pages/tv/tv-remote.html" target="_blank">
+                        <div class="card-header">
+                            <div class="card-icon coaching">
+                                <img src="./img/Optimum.png" alt="Remote Programming">
+                            </div>
+                            <div class="status-badge active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Remote Programming</div>
+                            <div class="card-tags">
+                                <span class="tag">Resources</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card" data-category="tools">
+                    <a href="https://www.optimum.net/pages/channel-lineups.html" target="_blank">
+                        <div class="card-header">
+                            <div class="card-icon adjustment">
+                                <img src="./img/Optimum.png" alt="Channel Lineups">
+                            </div>
+                            <div class="status-badge active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Channel Lineups</div>
+                            <div class="card-tags">
+                                <span class="tag">Resources</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="card" data-category="tools">
+                    <a href="https://publish.acho.io/0ba8659b-f3ca-4566-be07-ae80b1aa8476/home" target="_blank">
+                        <div class="card-header">
+                            <div class="card-icon dispute">
+                                <img src="./img/Optimum.png" alt="Package Comparison">
+                            </div>
+                            <div class="status-badge active">ACTIVE</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Package Comparison</div>
+                            <div class="card-tags">
+                                <span class="tag">Resources</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <!-- Info Modal -->
+        <div id="info-modal-overlay" class="modal-overlay hidden">
+            <div id="info-modal" class="modal">
+                <div class="modal-header">
+                    <h2><i class="fas fa-info-circle"></i> Central Link Dashboard</h2>
+                    <button id="close-modal" class="modal-close" aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-content">
+                        <div class="tool-info">
+                            <h3>About Central Link</h3>
+                            <p>An all-in-one portal designed to provide quick access to essential tools and resources for tech support representatives at Intelcia EG.
+                            <br>
+                            With instant filtering Search bar, Category filter buttons and Theme toggle switch as well as a local time clock this is created to make the job easier. 
+                            </p>
+                        </div>
+
+                        <div class="developer-info">
+                            <div class="developer-text">
+                                <h3>About the Developer</h3>
+                                <p class="developer-bio">
+                                    Hey! I'm <strong>Muhammad Salah</strong> — ex-Intelcian who's been around the block at Optimum USA in billing, collections, and technical support. These roles shaped my problem-solving mindset.
+                                </p>
+                                <p class="developer-bio">
+                                    Now, I’m also a web developer, focused on creating practical, problem-solving tools. I’m currently balancing both careers, using my skills to build applications that aim to support and simplify real business workflows.
+                                </p>
+                                <p class="version-info">Version 1.2.0</p>
+                            </div>
+                            <div class="developer-avatar">
+                                <div class="avatar-container">
+                                    <img src="./img/avatar.png" alt="Developer Avatar" class="avatar-image">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="feedback-section">
+                            <h3>Get In Touch...</h3>
+                            <a href="mailto:muhammadmeluk@gmail.com?subject=Dashboard%20Feedback" class="feedback-button-modal glass-button">
+                                <i class="fas fa-envelope"></i>
+                                <span></span>
+                            </a>
+
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Info Button -->
+        <button id="info-button" class="floating-info-btn" aria-label="Show info">
+            <i class="fas fa-info"></i>
+        </button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 EvoStatic. All rights reserved.</p>
+            <p class="footer-subtitle">Static by Nature. Evolved by Design.</p>
+        </div>
+    </footer>
+
+    <!-- Load main JavaScript -->
+    <script src="main.js"></script>
+</body>
+</html>

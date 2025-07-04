@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Middle Management Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="./logo.png">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <div class="header-content">
+                <div class="title-section">
+                    <h1 class="title">Middle Management Dashboard</h1>
+                    <div class="header-utils">
+                        <div class="clock" id="clock"></div>
+                        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                            <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg>
+                            <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 9.003 0 008.354-5.646z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="search-container">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search tools, forms, and resources..." autocomplete="off">
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="categories">
+                <button class="category-btn active" data-category="all">All</button>
+                <button class="category-btn" data-category="Monitoring Forms">Monitoring Forms</button>
+                <button class="category-btn" data-category="Automated Submissions">Automated Submissions</button>
+                <button class="category-btn" data-category="Dashboards">Dashboards</button>
+                <button class="category-btn" data-category="Tools">Tools</button>
+            </div>
+
+            <div id="password-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Shared Services Access</h2>
+            <input type="password" id="password-input" placeholder="Enter password..." autofocus />
+            <div class="modal-actions">
+                <button id="password-submit">Submit</button>
+                <button id="password-cancel">Cancel</button>
+            </div>
+            <div id="password-error" class="error-message"></div>
+        </div>
+        </div>
+
+            <div class="grid">
+                <!-- Monitoring Forms -->
+                <div class="card" data-category="Monitoring Forms">
+                    <a href="https://forms.office.com/pages/responsepage.aspx?id=wF1Tz_xz6kGhdBfzfO1_56hQfinLZ45GvBOPT-gWjm5UMlo5OVY1WUhBSExMSVpXNFlNNlo0SUFRNy4u&route=shorturl" target="_blank">
+                        <div class="card-icon">
+                            <img src="./hold-logo-860-5352.png" alt="Hold">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Hold</div>
+                            <div class="card-category">Monitoring Forms</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card" data-category="Monitoring Forms">
+                    <a href="https://forms.office.com/pages/responsepage.aspx?id=wF1Tz_xz6kGhdBfzfO1_56hQfinLZ45GvBOPT-gWjm5UNU5NNkJRTTFEMDdJU1hXNE9CVjRZMENJUC4u&route=shorturl" target="_blank">
+                        <div class="card-icon">
+                            <img src="./credit.jpg" alt="Credit Validation">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Credit Validation</div>
+                            <div class="card-category">Monitoring Forms</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card" data-category="Monitoring Forms">
+                    <a href="https://forms.office.com/pages/responsepage.aspx?id=wF1Tz_xz6kGhdBfzfO1_55FXZYpfEWpErxtKVHVBpkdUOTNLTVZKV1NNMFQyODNDNVJST0RLWEM1VC4u&route=shorturl" target="_blank">
+                        <div class="card-icon">
+                            <img src="./images.png" alt="TOC">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">TOC</div>
+                            <div class="card-category">Monitoring Forms</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card" data-category="Monitoring Forms">
+                    <a href="https://forms.office.com/r/c6Q46sSwuN" target="_blank">
+                        <div class="card-icon">
+                            <img src="./15163285.png" alt="Escalations">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Escalations</div>
+                            <div class="card-category">Monitoring Forms</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card" data-category="Monitoring Forms">
+                    <a href="https://forms.office.com/pages/responsepage.aspx?id=wF1Tz_xz6kGhdBfzfO1_54rPrLpHqRhDmEO6RTQp2KFUNEJFQkgyOUFYTkZWSElGUDY2VFhSN1U1Ni4u&route=shorturl" target="_blank">
+                        <div class="card-icon">
+                            <img src="./Eve_wall•e_clipped_rev_1.webp" alt="AVA">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">AVA Bookshilf</div>
+                            <div class="card-category">Monitoring Forms</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card" data-category="Monitoring Forms">
+                    <a href="https://forms.office.com/pages/responsepage.aspx?id=wF1Tz_xz6kGhdBfzfO1_5xzE8kOeUh5ArdYNdZVHmkBUQTg3MEQ3TDI2N1dLTFk1RzJCT1NTTzlCOC4u&route=shorturl" target="_blank">
+                        <div class="card-icon">
+                            <img src="./0933a2a1-8401-453d-9b22-6ac653d9cba1.png" alt="Call Monitoring">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Call Monitoring</div>
+                            <div class="card-category">Monitoring Forms</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card" data-category="Monitoring Forms">
+                    <a href="https://forms.office.com/r/dUQkJA5U7W" target="_blank">
+                        <div class="card-icon">
+                            <img src="lightning0.jpg" alt="Lightspeed Utilization">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title"> Lightspeed Utilization</div>
+                            <div class="card-category">Monitoring Forms</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card" data-category="Monitoring Forms">
+                    <a href="https://forms.office.com/r/tTeTSaTnTj" target="_blank">
+                        <div class="card-icon">
+                            <img src="./351874.png" alt="Closing Script">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title"> Closing Script</div>
+                            <div class="card-category">Monitoring Forms</div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Automated Submissions -->
+                <div class="card" data-category="Automated Submissions">
+                    <a href="https://forms.office.com/r/Yj8BQRC96M" target="_blank">
+                        <div class="card-icon">
+                            <img src="./Intelcia.png" alt="OT Form">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">OT Form</div>
+                            <div class="card-category">Automated Submissions</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card" data-category="Automated Submissions">
+                    <a href="https://forms.office.com/pages/responsepage.aspx?id=wF1Tz_xz6kGhdBfzfO1_54YY-BJsDbpBmPWwOrjFHDxUM01QVEJUUjVPUzA1RTQ0UUhCV0hWRUZYVi4u&route=shorturl" target="_blank">
+                        <div class="card-icon">
+                            <img src="./Intelcia.png" alt="Coaching">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Coaching</div>
+                            <div class="card-category">Automated Submissions</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card" data-category="Automated Submissions">
+                    <a href="https://forms.office.com/pages/responsepage.aspx?id=wF1Tz_xz6kGhdBfzfO1_54YY-BJsDbpBmPWwOrjFHDxUQjc3REYxVFNDSldPM05QRzY0QlZaTE0yOS4u&route=shorturl" target="_blank">
+                        <div class="card-icon">
+                            <img src="./Intelcia.png" alt="Coaching Adjustment Form">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Coaching Adjustment Form</div>
+                            <div class="card-category">Automated Submissions</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card" data-category="Automated Submissions">
+                    <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=wF1Tz_xz6kGhdBfzfO1_5-ZJ-hMftkJAoS6UgQSJ5opUMVRLRktMVFFFREhMTFFYUlI5M1hJSkJCNi4u" target="_blank">
+                        <div class="card-icon">
+                            <img src="./qa.png" alt="QA Dispute">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">QA Dispute</div>
+                            <div class="card-category">Automated Submissions</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card" data-category="Automated Submissions">
+                    <a href="https://forms.office.com/r/JezB58CvWm" target="_blank">
+                        <div class="card-icon">
+                            <img src="./Master-Shifu-No-Background.png" alt="Shefo Flags">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">CPE Flags</div>
+                            <div class="card-category">Automated Submissions</div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Dashboards -->
+                <div class="card" data-category="Dashboards">
+                    <a href="https://sso.online.tableau.com/public/idp/SSO" target="_blank">
+                        <div class="card-icon">
+                            <img src="./Tableau-Icon.png" alt="Tableau">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Tableau</div>
+                            <div class="card-category">Dashboards</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card" data-category="Dashboards">
+                    <a href="https://drive.google.com/drive/folders/1L5gLNk3lqrtIp8WjJJ0GB_Km77r9I561" target="_blank">
+                        <div class="card-icon">
+                            <img src="./RTM_logo.png" alt="RTM">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">RTM</div>
+                            <div class="card-category">Dashboards</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card" data-category="Dashboards">
+                    <a href="https://drive.google.com/drive/u/0/folders/1-wzlEo8EYx_EPS525Ep_hqaOFKRWRCB3" target="_blank">
+                        <div class="card-icon">
+                            <img src="./5571779.png" alt="Reporting">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Reporting</div>
+                            <div class="card-category">Dashboards</div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Tools -->
+                <div class="card" data-category="Tools">
+                    <a href="https://verint15.alticeusa.com/wfo/control/signin" target="_blank">
+                        <div class="card-icon">
+                            <img src="./Vimeo-Symbol.png" alt="Verint">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Verint</div>
+                            <div class="card-category">Tools</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card" data-category="Tools">
+                    <a href="https://nxt.alticeusa.net/nxt-ui/#/login" target="_blank">
+                        <div class="card-icon">
+                            <img src="./s.webp" alt="Verint">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Servassure</div>
+                            <div class="card-category">Tools</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card" data-category="Tools">
+                    <a href="https://web.whatsapp.com/" target="_blank">
+                        <div class="card-icon">
+                            <img src="./whatsapp.webp" alt="WhatsApp Web">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">WhatsApp Web</div>
+                            <div class="card-category">Tools</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card" data-category="Tools">
+                    <a href="https://optimum.ausaqaconnect.com/TransmonAltice/Login" target="_blank">
+                        <div class="card-icon">
+                            <img src="./10103506.png" alt="QA Connect">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">QA Connect</div>
+                            <div class="card-category">Tools</div>
+                        </div>
+                    </a>
+                </div>
+                 <div class="card" data-category="Tools">
+                    <a href="https://ash-rsso1.onbmc.com/rsso/start" target="_blank">
+                        <div class="card-icon">
+                            <img src="./remedy.webp" alt="Helix">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">Helix</div>
+                            <div class="card-category">Tools</div>
+                        </div>
+                    </a>
+                </div>
+                <!-- Shared Services -->
+                <div class="card" data-category="shared services">
+                    <a href="https://cvcmail.sharepoint.com/:u:/r/sites/PA/SitePages/Home.aspx?e=4%3af2f549cf72084c11b3300b221377887e&web=1&sharingv2=true&fromShare=true&at=9" target="_blank">
+                        <div class="card-icon">
+                            <img src="./sharepoint.png" alt="SharePoint">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">SS Sharepoint</div>
+                            <div class="card-category">Shared Services</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card" data-category="shared services">
+                    <a href="https://forms.office.com/r/i2EQjAUbG5" target="_blank">
+                        <div class="card-icon">
+                            <img src="./ion-ion-logo-png-transparent.png" alt="SS ION's">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">SS ION's</div>
+                            <div class="card-category">Shared Services</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="card" data-category="shared services">
+                    <a href="https://forms.office.com/pages/responsepage.aspx?id=wF1Tz_xz6kGhdBfzfO1_50Pz0X_itztMnpNZc2i1lCdUNFhQODkwNDI1NkY2MVNWT09MNDVOVjAyMC4u" target="_blank">
+                        <div class="card-icon">
+                            <img src="./SPV.png" alt="SS SPV Escalations">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">SS SPV Escalations</div>
+                            <div class="card-category">Shared Services</div>
+                        </div>
+                    </a>
+                </div>
+        </main>
+
+        <footer class="footer">
+            <p>Designed & Developed by <a href="https://github.com/stitch-606" target="_blank">Mohamed Nasr (AkA STiTCH)</a></p>
+            <p>If you have any suggestions please feel free to email it to <a href="mailto:mohamed.abdelmowgodmaragehnasr@alticeusa.com" target="_blank">suggestions@mail.com</a></p>
+        </footer>
+    </div> 
+
+    <script src="script.js"></script>
+</body>
+</html>
