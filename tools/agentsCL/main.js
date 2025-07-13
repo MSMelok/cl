@@ -494,7 +494,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const password = passwordInput.value.trim();
 
         // Simple password check (in production, this would be more secure)
-        if (password === 'evostatic2025' || password === 'admin123') {
+        if (password === 'T207707Qx' || password === 'admin123') {
             // Password correct, redirect to protected URL
             window.open(currentProtectedUrl, '_blank');
             closePasswordModal();

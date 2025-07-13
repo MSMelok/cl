@@ -3,16 +3,16 @@
 :root {
   /* EvoStatic Color Scheme - Pink to Purple Gradient */
   --primary: #f75fb2;
-  --primary-light: #ff8cc8;
-  --primary-dark: #764ba2;
+  --primary-light: #db2777;
+  --primary-dark: #db2777;;
   --primary-rgb: 247, 95, 178;
-  --secondary: #764ba2;
+  --secondary: #ec4899;
   --secondary-rgb: 118, 75, 162;
   
-  --background: #0f0f23;
-  --surface: #1a1a2e;
-  --surface-light: #252545;
-  --surface-hover: #2d2d5a;
+  --background: #101930;
+  --surface: #181e3b;
+  --surface-light: #1b1b31;
+  --surface-hover: #334155;
   
   --text: #ffffff;
   --text-secondary: #a8a8c8;
@@ -21,7 +21,7 @@
   --border: rgba(168, 168, 200, 0.15);
   --border-light: rgba(168, 168, 200, 0.08);
   
-  --success: #10b981;
+  --success: #22c55e;
   --warning: #f59e0b;
   --error: #ef4444;
   --info: #3b82f6;
@@ -36,7 +36,7 @@
   --shadow-lg: 0 10px 20px -3px rgba(0, 0, 0, 0.6), 0 4px 8px -4px rgba(0, 0, 0, 0.5);
   --shadow-xl: 0 25px 35px -5px rgba(0, 0, 0, 0.7), 0 10px 15px -5px rgba(0, 0, 0, 0.4);
   
-  --gradient-primary: linear-gradient(135deg, #f75fb2 0%, #764ba2 100%);
+  --gradient-primary: linear-gradient(135deg, #f75fb2 0%, #ff009dd7 100%);
   --gradient-secondary: linear-gradient(135deg, #ff8cc8 0%, #8b6bb1 100%);
   --gradient-surface: linear-gradient(135deg, rgba(247, 95, 178, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
   
@@ -45,7 +45,7 @@
 }
 
 [data-theme="light"] {
-  --background: #f8fafc;
+  --background: #f0f9ff;
   --surface: #ffffff;
   --surface-light: #f1f5f9;
   --surface-hover: #e2e8f0;
