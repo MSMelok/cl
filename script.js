@@ -1,7 +1,7 @@
 // Central Link Landing Page - No header time display needed
 
 // Password for management access
-const MANAGEMENT_PASSWORD = 'Dstx07804';
+const MANAGEMENT_PASSWORD = 'M@Dstx07707';
 
 // Access functions
 function accessAgents() {
@@ -60,7 +60,7 @@ function validatePassword() {
         // Password is correct
         closePasswordModal();
         // Redirect to management portal
-        window.location.href = './tools/managmentCL/index.html';
+        window.location.href = './tools/managmentCLX/index.html';
     } else {
         // Password is incorrect
         errorMessage.textContent = 'Invalid password. Please try again.';
